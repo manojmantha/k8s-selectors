@@ -6,7 +6,7 @@ metadata:
     purpose: "tolerations-demo"
 spec:
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1b
+    topology.kubernetes.io/zone: us-east-1a
   containers:
     - name: nginx
       image: nginx
@@ -15,3 +15,7 @@ spec:
       operator: "Equal"
       value: "gpu"
       effect: "NoSchedule"
+    - key: "hardware"
+      operator: "Equal"
+      value: "gpu"
+      effect: "NoExecute"
